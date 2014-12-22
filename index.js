@@ -220,6 +220,7 @@ function tick(){
 	_.map(snake.spectators,sendState);
 }
 function sendState(socket){
+	if(!socket) return;
 	var state = {};
 	state.snakes=_.map(snake.players,function(player,i){
 		return _.pick(player,['id','parts']);
